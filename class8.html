@@ -1,44 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Title</title>
-  </head>
-  <body>
-        <h2>JavaScript Class Inheritance</h2>
+<head>
+    <title>JavaScript array Sort</title>
+</head>
+<body>
+    <h2>JavaScript array Sort</h2>
 
-        <p id="details"></p>
-        <p id="greetings"></p>
-        <script>
-           class Student {
-               constructor(name) {
-                   this.studentName = name;
-               }
+    <p>Click the button to sort the array in ascending order.</p>
 
-               present() {
-                   return "I am " + this.studentName;
-               }
+    <button onclick="ascending()">Ascending Order</button>
+    <button onclick="descending()">Descending Order</button>
 
-               static hello() {
-                   return "Hello! This is a static message from the Student class.";
-               }
-           }
+    <p id="result"></p>
+    <script>
+    const points = [40, 100, 1, 5, 7, 25, 10];
+    
+    document.getElementById("result").innerHTML = points;
 
-           class Grade extends Student {
-               constructor(name, grade) {
-                   super(name);
-                   this.studentGrade = grade;
-               }
+    function ascending() {
+        points.sort((a, b) => a - b);
+        document.getElementById("result").innerHTML = points;
+    }
 
-               show() {
-                   return this.present() + ', and I am in ' + this.studentGrade;
-               }
-           }
+    function descending() {
+        points.sort((a, b) => b - a);
+        document.getElementById("result").innerHTML = points;
+    }
+  </script>
 
-           let myStudent = new Grade("Tina", "grade 6");
-           document.getElementById("details").innerHTML = myStudent.show();
+  <p id="product_value"></p>
 
-           // hello() is a static method cannot be accessed by object
-           document.getElementById("greetings").innerHTML = Student.hello();
-        </script>
-  </body>
-</html>
+  <script>
+    const numbers = [28, 6, 19, 95];
+
+    const multiplyByTen = (num) => num * 10;
+
+    const multipliedNumbers = numbers.map(multiplyByTen);
+
+    document.getElementById("product_value").innerHTML = multipliedNumbers;
+  </script> 
+
+  <p>Click the button to evaluate/execute JavaScript code/expressions.</p>
+
+  <button onclick="myFunction()">Try it</button>
+
+  <p id="result2"></p>
+
+  <script>
+    function myFunction() {
+        const x = 10;
+        const y = 20;
+
+        var a = eval("x + y") + "<br>";
+        var b = eval("2 * 2") + "<br>";
+        var c = eval("y - x") + "<br>";
+
+        var res = a + b + c; // concatenates the string
+
+        document.getElementById("result2").innerHTML = res;
+    }
+  </script>
+    </body>
+    </html>
